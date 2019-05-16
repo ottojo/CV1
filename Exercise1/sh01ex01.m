@@ -1,5 +1,5 @@
-obstA = imread("obstA.png");
-obstB = imread("obstB.png");
+obstA = imread('obstA.png');
+obstB = imread('obstB.png');
 histA = myHistogram(obstA);
 histB = myHistogram(obstB);
 
