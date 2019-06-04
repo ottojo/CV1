@@ -1,4 +1,8 @@
+% Dominik Authaler
+% Jonas Otto
+
 %%
+pkg load image;
 close all;
 clc;
 clear;
@@ -7,59 +11,45 @@ clear;
 im1 = im2double(imread('./images/flower01.png'));
 im2 = im2double(imread('./images/flower02.png'));
 
-figure(1)
-subplot(2, 2, 1);
-imshow(im1)
-title('flower01.png');
-
-subplot(2, 2, 2);
-imshow(im2)
-title('flower01.png');
-
-F1 = fft2(im1);
-F2 = fft2(im2);
-
-% 
-% subplot(2, 2, 3);
-% imagesc(log(abs(fftshift(F1))));
-% colorbar;
-% title('Frequency spectrum of flower01.png');
-% 
-% subplot(2, 2, 4);
-% imagesc(log(abs(fftshift(F2))));
-% colorbar;
-% title('Frequency spectrum of flower02.png');
-% saveas(gcf,'./images/ex03_1.png')
+F1 = fftshift(fft2(im1));
+F2 = fftshift(fft2(im2));
 
 %% task b)
 [height, width, dim] = size(im1);
 sigma = height / 2; %Images have same sizes
-hsize = 2*ceil(2*sigma)+1;
-G = fspecial('gaussian', hsize, sigma);
-G = G ./ max(max(G));
+hsize = min([width,height]);
+G = imresize(fspecial('gaussian', hsize, sigma), [height width]);
+G = G / max(max(G));
 H = 1 - G;
 
-figure(2)
 imagesc(H);
 colorbar;
 title('Highpass filter');
-saveas(gcf,'./images/ex03_2.png')
+saveas(gcf,'./images/ex03_2.png');
+
+F1 = F1 .* H;
+F2 = F2 .* H;
 
 %% task c)
-% calculate fft of filter
-H_fft = fft(H);
 
-filtered1 = imfilter(im1, H, 'replicate', 'conv');
-HF1 = fft(filtered1);
+F1S = F1 .* F1;
+F2S = F2 .* F2;
 
-figure(1)
+energy1 = abs(sum(sum(F1S)))
+energy2 = abs(sum(sum(F2S)))
+
+figure();
+subplot(2,2,1);
+imshow(im1);
+
+subplot(2,2,2);
+imshow(im2);
+
 subplot(2, 2, 3);
-imagesc(log(abs(fftshift(HF1))));
-colorbar;
-title('Frequency spectrum of flower01.png');
+imshow(log(abs(F1)));
+title(['Frequency spectrum of flower01.png (e =' num2str(energy1,'%d') ')']);
 
 subplot(2, 2, 4);
-imagesc(log(abs(fftshift(F2))));
-colorbar;
-title('Frequency spectrum of flower02.png');
-%saveas(gcf,'./images/ex03_1.png')
+imshow(log(abs(F2)));
+title(['Frequency spectrum of flower02.png (e =' num2str(energy2,'%d') ')']);
+saveas(gcf,'./images/ex03_1.png')
