@@ -4,7 +4,6 @@ clc;
 clear;
 
 %% Calculation
-
 image = imread("./images/bookstore_dark.tif");
 
 histogram = myHistogram(image);
@@ -14,8 +13,6 @@ cumulativeHistogram = cumsum(histogram);
 equalizedImage = intlut(image, uint8(cumulativeHistogram*256));
 
 %% Visualization
-clf;
-
 rows = 3;
 cols = 2;
 
@@ -43,4 +40,4 @@ subplot(rows, cols, 6);
 bar(0:255, cumsum(myHistogram(equalizedImage)));
 title("Cumulative Histogram");
 
-%saveas(gcf,'./images/ex01.png')
+%saveas(gcf,'./images/ex01.eps', 'epsc')
