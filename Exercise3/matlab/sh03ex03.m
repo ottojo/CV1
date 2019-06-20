@@ -4,14 +4,14 @@ clc;
 clear;
 
 %% Load .mat files and calculate
-load("./images/Hfreq.mat");
-load("./images/Hfreq2.mat");
-load("./images/filtered.mat");
+load("../images/Hfreq.mat");
+load("../images/Hfreq2.mat");
+load("../images/filtered.mat");
 
 Hspat = ifft2(Hfreq);
 Hspat2 = ifft2(Hfreq2);
 
-orgImage = imread("./images/bookstore.tif");
+orgImage = imread("../images/bookstore.tif");
 filteredFreq = fft2(filtered);
 
 deconvolved1 = ifft2(filteredFreq ./ Hfreq);
@@ -37,7 +37,7 @@ title("filter 1 (spatial domain)");
 subplot(rows, cols, 4);
 imshow(Hspat2(1:30, 1:50), []);
 title("filter 2 (spatial domain)");
-saveas(gcf,'./images/ex03_filters.eps','epsc')
+saveas(gcf,'../images/ex03_filters.eps','epsc')
 
 figure()
 subplot(rows, cols, 1);

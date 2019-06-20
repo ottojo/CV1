@@ -4,7 +4,7 @@ clc;
 clear;
 
 %% Calculation
-image = im2double(rgb2gray(imread("./images/circles.png")));
+image = im2double(rgb2gray(imread("../images/circles.png")));
 
 % Rescale to fit exactly [0, 1]
 image = image - min(image(:));
@@ -45,4 +45,4 @@ subplot(rows, cols, 3);
 imshow(gradientColored(magnitude, angles, 0.25));
 title("image orientation");
 tightfig;
-%saveas(gcf,'./images/ex02.eps','epsc')
+saveas(gcf,'../images/ex02.eps','epsc')

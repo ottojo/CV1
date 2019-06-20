@@ -4,7 +4,7 @@ clc;
 clear;
 
 %% Calculation
-image = imread("./images/bookstore_dark.tif");
+image = imread("../images/bookstore_dark.tif");
 
 histogram = myHistogram(image);
 
@@ -40,4 +40,4 @@ subplot(rows, cols, 6);
 bar(0:255, cumsum(myHistogram(equalizedImage)));
 title("Cumulative Histogram");
 
-%saveas(gcf,'./images/ex01.eps', 'epsc')
+saveas(gcf,'../images/ex01.eps', 'epsc')
