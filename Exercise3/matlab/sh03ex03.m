@@ -55,5 +55,5 @@ title("deconvolved image (filter 1)");
 subplot(rows, cols, 4)
 imshow(deconvolved2);
 title("deconvolved image (filter 2)");
-%saveas(gcf,'./images/ex03_images.eps','epsc');
+saveas(gcf,'../images/ex03_images.eps','epsc');
 
