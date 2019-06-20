@@ -61,7 +61,7 @@ The source code used for this task can be found beneath or in the file sh03ex01.
 \section{Image gradients}
 The sign of the sobel operator decides whether the result approximates the gradient or the negative gradient. The resulting vector points towards the biggest increase if the sign is positive, therefore if one inverts the sign of both Sobel operators it would point to the biggest decrease. Nevertheless, the length of the gradient vector stays the same.
 
-For the second task one needed to be aware that the y-axis points downwards, although the thoughts behind Sobel operators assumed a "normal" mathematical coordinate system. Therefore we either need to multiply the Sobel operator for the y-direction with $-1$ or the result $I_y$ calculated with the given kernel. We've chosen the latter approach. The results for the different positions given in task 2 can be found in Table \ref{tab1}. For the positions $v_3$ and $v_5$ there is no nice rational fraction times $\pi$. Therefore this results are approximately given as a decimal number in radians.
+For the second task one needed to be aware that the y-axis points downwards, although the thoughts behind Sobel operators assumed a "normal" mathematical coordinate system. Therefore we either need to multiply the Sobel operator for the y-direction with $-1$ or the result $I_y$ calculated with the given kernel. We've chosen the latter approach. The results for the different positions given in task 2 can be found in Table \ref{tab1}. For the positions $v_2$ and $v_4$ there is no nice rational fraction times $\pi$. Therefore this results are approximately given as a decimal number in radians.
 
 \begin{table}[H]
   \centering
@@ -81,7 +81,7 @@ For the second task one needed to be aware that the y-axis points downwards, alt
   \end{tabular}
 \end{table}
 
-The source code used to generate the images shown in figure \ref{ex02} can be also found in the file sh03ex02.m. For the visualization of the original image we let Matlab rearrange the intensity values over the full range from 0 to 255, therefore the circles look brighter/darker than one would expect form their original intensity values.
+The source code used to generate the images shown in figure \ref{ex02} can be also found in the file sh03ex02.m. For the visualization of the original image we let Matlab rearrange the intensity values over the full range from 0 to 255, therefore the circles look brighter/darker than one would expect from their original intensity values.
 
 \hspace{20mm}
 \lstinputlisting{./matlab/sh03ex02.m}
