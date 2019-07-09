@@ -11,7 +11,7 @@ corners = moravec(img);
 cornerNoisy = moravec(noisyImg);
 
 %% Visualization
-rows = 2;
+rows = 1;
 cols = 2;
 
 figure('name','Image');
