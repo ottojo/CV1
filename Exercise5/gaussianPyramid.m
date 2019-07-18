@@ -2,7 +2,8 @@ function images = gaussianPyramid(image, n, useGaussian)
   clear images;
   images{1} = image;
 
-  gauss = fspecial('gaussian', 3); % todo sigma berechnen oder auch nicht
+  % TODO: Parameter für gauss bestimmen
+  gauss = fspecial('gaussian');
 
   for i = 2:n
     if useGaussian == 1
