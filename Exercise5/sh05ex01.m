@@ -1,23 +1,9 @@
-image_gauss = im2double(imread("boats.tif"));
-image = image_gauss;
+image = im2double(imread("boats.tif"));
 
 n=6;
 
-clear images_gauss;
-clear images;
-images_gauss{1} = image_gauss;
-images{1} = image;
-
-gauss = fspecial('gaussian', 3); % todo sigma berechnen oder auch nicht
-
-for i = 2:n
-  image_gauss = imfilter(image_gauss, gauss);
-  image_gauss = 0.5 * image_gauss(1:2:end, 1:2:end) + 0.5 * image_gauss(2:2:end, 2:2:end);
-  images_gauss{i} = image_gauss;
-
-  image = 0.5 * image(1:2:end, 1:2:end) + 0.5 * image(2:2:end, 2:2:end);
-  images{i} = image;
-endfor
+images_gauss = gaussianPyramid(image, n, 1);
+images = gaussianPyramid(image, n, 0);
 
 %% Visualization
 close all;
