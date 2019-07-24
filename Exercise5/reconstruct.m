@@ -4,6 +4,6 @@ function image = reconstruct(L)
   G{n} = L{n}
   for i = n-1:-1:1
     G{i} = imresize(G{i+1}, 2) + L{i};
-  endfor
+  end
   image = G{1};
-endfunction
+end

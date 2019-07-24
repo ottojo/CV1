@@ -8,8 +8,8 @@ function images = gaussianPyramid(image, n, useGaussian)
   for i = 2:n
     if useGaussian == 1
           image = imfilter(image, gauss);
-    endif
+    end
     image = 0.5 * image(1:2:end, 1:2:end) + 0.5 * image(2:2:end, 2:2:end);
     images{i} = image;
-  endfor
-endfunction
+  end
+end

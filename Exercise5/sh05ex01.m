@@ -14,7 +14,8 @@ for i = 1:n
   imshow(images_gauss{i}, []);
   colorbar();
   title(['G(' num2str(i) ')']);
-endfor
+end
+saveas(gcf,'ex01_with.eps','epsc')
 
 figure('Name','Without gaussian filtering');
 for i = 1:n
@@ -22,4 +23,5 @@ for i = 1:n
   imshow(images{i}, []);
   colorbar();
   title(['G(' num2str(i) ')']);
-endfor
+end
+saveas(gcf,'ex01_without.eps','epsc')
