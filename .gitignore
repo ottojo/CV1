@@ -5,5 +5,5 @@ Exercise1/HandwrittenExercises.synctex.gz
 *.aux
 *.log
 *.gz
-*.pdf
+Exercise*.pdf
 *.m~
